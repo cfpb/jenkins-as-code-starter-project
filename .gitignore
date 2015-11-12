@@ -6,3 +6,11 @@ gradle-app.setting
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar
+
+dist/
+.idea/
+*.iml
+build/
+.gradle/
+
+.DS_Store
