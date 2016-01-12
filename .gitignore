@@ -10,7 +10,6 @@ gradle-app.setting
 dist/
 .idea/
 *.iml
-build/
 .gradle/
 
 .DS_Store
