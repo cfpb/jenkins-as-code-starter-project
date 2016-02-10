@@ -1,10 +1,10 @@
 import jenkins.automation.builders.*
 import jenkins.automation.utils.EnvironmentUtils
 
-//the "JAC_ENVIRONMENT" global variable is set in all of our Jenkinses
-//if you're testing this in a local Jenkins, you must configure this global variable.
-//Set it to "dev", "stage", or "prod" depending on what you want to test
-//If you're not sure, set it to "dev"
+// the "JAC_ENVIRONMENT" global variable is set in all of our Jenkinses
+// if you're testing this in a local Jenkins, you must configure this global variable.
+// Set it to "DEV", "STAGE", or "PROD" depending on what you want to test
+// If you're not sure, set it to "DEV"
 
 def env = EnvironmentUtils.getInstance("${JAC_ENVIRONMENT}")
 println "Environment is " + env.getEnv()
