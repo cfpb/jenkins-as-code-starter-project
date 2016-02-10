@@ -13,11 +13,17 @@ if (env.isDev()) {
     //do environment-specific things here
 }
 
+// See http://cfpb.github.io/jenkins-automation/ for the niceties provided by our jenkins-automation project
+
+// Our custom builders are simply wrappers around job-dsl job types (https://github.com/jenkinsci/job-dsl-plugin)
+// In the `with {}` closure, you have full access to the job-dsl API (https://jenkinsci.github.io/job-dsl-plugin/)
+// and anything else job-dsl supports, such as the `configure` block (https://github.com/jenkinsci/job-dsl-plugin/wiki/The-Configure-Block)
 new FlowJobBuilder(
         name: 'GeneratedFlowJob',
         description: 'this our first stab at it',
         jobs: ['job1', 'job2']
 ).build(this).with {
+    // example of extending a job with the job-dsl api
     logRotator {
         numToKeep(365)
     }
@@ -25,7 +31,15 @@ new FlowJobBuilder(
 
 new BaseJobBuilder(
         name: "job1",
-        description: "A job"
+        description: "One job"
+).build(this).with {
+    steps {
+        shell("echo ${env.getEnv()}")
+    }
+}
+new BaseJobBuilder(
+        name: "job2",
+        description: "Two job"
 ).build(this).with {
     steps {
         shell("echo ${env.getEnv()}")
