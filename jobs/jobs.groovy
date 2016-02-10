@@ -28,6 +28,6 @@ new BaseJobBuilder(
         description: "A job"
 ).build(this).with {
     steps {
-        shell("echo $env")
+        shell("echo ${env.getEnv()}")
     }
 }
