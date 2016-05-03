@@ -28,6 +28,12 @@ task wrapper(type: Wrapper) {
     distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
 }
 
+task rest(type: JavaExec) {
+    main = 'jenkins.automation.rest.RestApiScriptRunner'
+    classpath = sourceSets.main.runtimeClasspath
+    systemProperties System.getProperties()
+}
+
 sourceSets {
     main {
         groovy {
