@@ -32,10 +32,7 @@ class my_job_test extends Specification {
                 println "expected:" + resultMap[k]
             }
             assert resultMap[k] == v
-
         }
-
-
     }
 
 
