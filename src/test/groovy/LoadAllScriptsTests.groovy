@@ -2,9 +2,11 @@ import groovy.io.FileType
 import javaposse.jobdsl.dsl.DslScriptLoader
 import javaposse.jobdsl.dsl.JobManagement
 import javaposse.jobdsl.dsl.MemoryJobManagement
+import spock.lang.Ignore
 import spock.lang.Specification
 
 class LoadAllScriptsTests extends Specification {
+    @Ignore
     void 'test my flow build job'() {
 
         given:
