@@ -13,9 +13,9 @@ class LoadAllScriptsTests extends Specification {
         JobManagement jm = new MemoryJobManagement()
 
         //for the test, set the params we expect to exist in all our Jenkinses
-        def params = jm.getParameters()
-        params['JAC_ENVIRONMENT'] = "dev"
-        params['JAC_HOST'] = "aws"
+
+        jm.parameters['JAC_ENVIRONMENT'] = "dev"
+        jm.parameters['JAC_HOST'] = "aws"
 
         List<File> files = []
 
@@ -25,8 +25,13 @@ class LoadAllScriptsTests extends Specification {
             }
         }
 
+        //this helps resolve readFileFromWorkspace in test context
+        // jm.availableFiles << [
+        // 'scripts/run-fabric-deployment-script.sh' : new File('scripts/run-fabric-deployment-script.sh').text
+        // ]
+
         when:
-        files.each{file->
+        files.each { file ->
             DslScriptLoader.runDslEngine file.text, jm
         }
 
