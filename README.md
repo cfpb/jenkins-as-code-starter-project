@@ -9,6 +9,7 @@ A neat little project that uses our jenkins utils and helps you to get started a
 1. Change the git remote URL to wherever your jobs will live
 1. In `settings.gradle`, change the `rootProject.name` to match your new project name
 1. Run `./gradlew build` from the project root directory
+1. Install and run a local Jenkins 
 1. Profit! Start writing your jobs in jobs dir. 
 
 ## Creating your jobs in Jenkins
@@ -40,6 +41,10 @@ To do so, use the gradle `rest` task, which we've included in `jenkins-automatio
 
 This uses a task named `rest` to execute `jenkins.automation.rest.RestApiScriptRunner`, 
 which lives in the `jenkins-automation` repo and is available here since `jenkins-automation` is a dependency.
+
+Finally, install and run Jenkins locally: 
+* download the `.war` file from [https://jenkins.io/](https://jenkins.io/) 
+* run with `nohup java -jar path-to-file/jenkins.war --httpPort=8081`
 
 #### Examples
 
