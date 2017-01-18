@@ -2,7 +2,6 @@ import groovy.io.FileType
 import javaposse.jobdsl.dsl.DslScriptLoader
 import javaposse.jobdsl.dsl.JobManagement
 import javaposse.jobdsl.dsl.MemoryJobManagement
-import javaposse.jobdsl.dsl.ScriptRequest
 import spock.lang.Ignore
 import spock.lang.Specification
 
@@ -33,7 +32,7 @@ class LoadAllScriptsTests extends Specification {
 
         when:
         files.each { file ->
-            new DslScriptLoader(jm).runScripts([new ScriptRequest(file.text)])
+            new DslScriptLoader(jm).runScript(file.text)
         }
 
         then:
