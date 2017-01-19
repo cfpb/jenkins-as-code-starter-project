@@ -32,7 +32,7 @@ class LoadAllScriptsTests extends Specification {
 
         when:
         files.each { file ->
-            DslScriptLoader.runDslEngine file.text, jm
+            new DslScriptLoader(jm).runScript(file.text)
         }
 
         then:
