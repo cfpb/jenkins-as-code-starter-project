@@ -19,7 +19,7 @@ dependencies {
             {
                 exclude module: 'groovy-all'
             }
-    compile 'com.github.cfpb:jenkins-automation:-SNAPSHOT'
+    compile 'com.github.cfpb:jenkins-automation:main-SNAPSHOT'
 
 }
 task wrapper(type: Wrapper) {
